@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+
+# Flask instance folder
+instance/
+
+# Pytest
+.cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+*.cover
+
+# IDE specific files
+# For Visual Studio Code
+.vscode/
+
+# For PyCharm/IntelliJ
+.idea/
+
+# For Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Database files (if you're using SQLite)
+*.db
+*.sqlite
+
+# Other files and folders to ignore
+*.log
+*.tmp
+node_modules/
