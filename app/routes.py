@@ -2,6 +2,8 @@ import os
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+
+from .config.log_config import setup_logging
 from .validation.email_format_validator import validate_email_format
 from .validation.domain_verifier import validate_domain
 from .validation.smtp_checker import verify_email_exists
@@ -15,12 +17,11 @@ app.config['FLASK_RUN_PORT'] = os.getenv('FLASK_RUN_PORT', 5000)
 app.config['FROM_EMAIL'] = os.getenv('FROM_EMAIL', 'default-from@email.com')
 app.debug = os.getenv('FLASK_DEBUG', '0') == '1'
 
+setup_logging(app)
+
 
 @app.route('/validate_email', methods=['POST'])
 def validate_email():
-    app.logger.info('Headers: %s', request.headers)
-    app.logger.info('Body: %s', request.get_data())
-
     try:
         data = request.get_json()
         email = data.get('email')
